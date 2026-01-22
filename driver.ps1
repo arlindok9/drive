@@ -10,6 +10,7 @@ function Escolher-Pasta {
     }
 }
 
+$opcao = ""
 do {
     Clear-Host
     Write-Host "============================================"
@@ -53,9 +54,7 @@ do {
         }
         "4" {
             Write-Host "Saindo..."
-        exit
-        }
-
+            exit   # <- aqui funciona corretamente
         }
         default {
             Write-Host "Opção inválida."
@@ -63,5 +62,3 @@ do {
         }
     }
 } while ($opcao -ne "4")
-
-
