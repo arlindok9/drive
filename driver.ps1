@@ -48,10 +48,18 @@ do {
             Read-Host "Pressione ENTER para voltar ao menu"
         }
         "3" {
-            Write-Host "Listando drivers instalados..."
-            pnputil /enum-drivers
+            $pasta = Escolher-Pasta
+            if ($pasta) {
+        $arquivo = Join-Path $pasta "drivers.txt"
+                Write-Host "Gerando lista de drivers em $arquivo ..."
+                pnputil /enum-drivers | Out-File -FilePath $arquivo -Encoding UTF8
+                Write-Host "Lista concluída! Arquivo salvo em $arquivo"
+            } else {
+                Write-Host "Operação cancelada."
+            }
             Read-Host "Pressione ENTER para voltar ao menu"
         }
+
         "4" {
             Write-Host "Saindo..."
             exit   # <- aqui funciona corretamente
