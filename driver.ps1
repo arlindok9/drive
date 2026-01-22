@@ -53,6 +53,9 @@ do {
         }
         "4" {
             Write-Host "Saindo..."
+        exit
+        }
+
         }
         default {
             Write-Host "Opção inválida."
@@ -60,4 +63,5 @@ do {
         }
     }
 } while ($opcao -ne "4")
+
 
